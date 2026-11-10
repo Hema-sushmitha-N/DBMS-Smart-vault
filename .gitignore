@@ -1,0 +1,7 @@
+.tools/
+.local/
+web/node_modules/
+web/.next/
+web/.env.local
+web/test-results/
+*.log

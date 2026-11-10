@@ -1,0 +1,182 @@
+{
+  "roles": {
+    "ADMIN": {
+      "rows": 18,
+      "units": 343,
+      "atomic_transfer": "passed",
+      "receiving": "passed; duplicate receiving rejected",
+      "category_cycle": "rejected"
+    },
+    "STAFF": {
+      "rows": 18,
+      "units": 343,
+      "denied": [
+        "master writes",
+        "direct balance writes",
+        "password hash reads"
+      ],
+      "atomic_transfer": "passed"
+    }
+  },
+  "queries": [
+    {
+      "id": "warehouse",
+      "title": "Warehouse stock value",
+      "rows": [
+        {
+          "warehouse_name": "North Warehouse",
+          "units": 117,
+          "stock_value": "62750.00"
+        },
+        {
+          "warehouse_name": "Central Warehouse",
+          "units": 138,
+          "stock_value": "40750.00"
+        },
+        {
+          "warehouse_name": "West Warehouse",
+          "units": 88,
+          "stock_value": "40710.00"
+        }
+      ]
+    },
+    {
+      "id": "having",
+      "title": "Products with more than 50 units",
+      "rows": [
+        {
+          "product_name": "A4 Paper Ream",
+          "total_stock": 75
+        },
+        {
+          "product_name": "Keyboard",
+          "total_stock": 68
+        },
+        {
+          "product_name": "Safety Gloves",
+          "total_stock": 63
+        }
+      ]
+    },
+    {
+      "id": "nested",
+      "title": "Products above average price",
+      "rows": [
+        {
+          "product_name": "Keyboard",
+          "unit_price": "900.00"
+        },
+        {
+          "product_name": "Wireless Mouse",
+          "unit_price": "600.00"
+        },
+        {
+          "product_name": "Safety Helmet",
+          "unit_price": "450.00"
+        }
+      ]
+    },
+    {
+      "id": "correlated",
+      "title": "Stock below its warehouse average",
+      "rows": [
+        {
+          "product_name": "Safety Helmet",
+          "warehouse_name": "Central Warehouse",
+          "quantity": 0
+        },
+        {
+          "product_name": "Keyboard",
+          "warehouse_name": "Central Warehouse",
+          "quantity": 8
+        },
+        {
+          "product_name": "Notebook Pack",
+          "warehouse_name": "North Warehouse",
+          "quantity": 5
+        },
+        {
+          "product_name": "Safety Gloves",
+          "warehouse_name": "North Warehouse",
+          "quantity": 15
+        },
+        {
+          "product_name": "Wireless Mouse",
+          "warehouse_name": "North Warehouse",
+          "quantity": 17
+        },
+        {
+          "product_name": "Wireless Mouse",
+          "warehouse_name": "West Warehouse",
+          "quantity": 5
+        },
+        {
+          "product_name": "Safety Gloves",
+          "warehouse_name": "West Warehouse",
+          "quantity": 8
+        },
+        {
+          "product_name": "Notebook Pack",
+          "warehouse_name": "West Warehouse",
+          "quantity": 10
+        }
+      ]
+    },
+    {
+      "id": "recursive",
+      "title": "Category hierarchy",
+      "rows": [
+        {
+          "category_id": 1,
+          "category_name": "Electronics",
+          "depth": 0,
+          "path": "Electronics"
+        },
+        {
+          "category_id": 4,
+          "category_name": "Computer peripherals",
+          "depth": 1,
+          "path": "Electronics / Computer peripherals"
+        },
+        {
+          "category_id": 3,
+          "category_name": "Safety",
+          "depth": 0,
+          "path": "Safety"
+        },
+        {
+          "category_id": 2,
+          "category_name": "Stationery",
+          "depth": 0,
+          "path": "Stationery"
+        }
+      ]
+    },
+    {
+      "id": "cte",
+      "title": "Warehouse share of all inventory",
+      "rows": [
+        {
+          "warehouse_name": "Central Warehouse",
+          "units": "138",
+          "percent_of_all_stock": "40.23"
+        },
+        {
+          "warehouse_name": "North Warehouse",
+          "units": "117",
+          "percent_of_all_stock": "34.11"
+        },
+        {
+          "warehouse_name": "West Warehouse",
+          "units": "88",
+          "percent_of_all_stock": "25.66"
+        }
+      ]
+    },
+    {
+      "id": "ledger",
+      "title": "Reconcile balances with the movement ledger",
+      "rows": []
+    }
+  ]
+}

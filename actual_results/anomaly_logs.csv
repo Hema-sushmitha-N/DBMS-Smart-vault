@@ -1,0 +1,2 @@
+anomaly_id,movement_id,rule_name,reason,detected_at
+"1","18","LARGE_ISSUE","Single issue of at least 50 units; review required, not proof of fraud.","2026-10-29T05:30:00.000Z"

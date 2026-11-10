@@ -1,0 +1,5 @@
+order_id,supplier_id,warehouse_id,created_by,order_date,status
+"1","1","1","1","2026-10-24T18:30:00.000Z","PLACED"
+"2","2","2","2","2026-10-25T18:30:00.000Z","DRAFT"
+"3","3","3","1","2026-10-26T18:30:00.000Z","PLACED"
+"4","1","2","3","2026-10-27T18:30:00.000Z","CANCELLED"

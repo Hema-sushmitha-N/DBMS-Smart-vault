@@ -1,0 +1,50 @@
+{
+  "database": "smartvault_qa_1794327446379",
+  "isolated": true,
+  "checks": [
+    {
+      "name": "Anonymous denial, incorrect-password rejection, and signed HttpOnly session",
+      "status": "passed"
+    },
+    {
+      "name": "Staff API privilege boundaries, cross-origin rejection, and secret-field exclusion",
+      "status": "passed"
+    },
+    {
+      "name": "Admin UI master-record create, read, update, and delete",
+      "status": "passed"
+    },
+    {
+      "name": "UI order creation and atomic receiving; low-stock resolution; duplicate receiving rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Staff UI transfer, actor attribution, insufficient-stock rejection, and unchanged balances after failure",
+      "status": "passed"
+    },
+    {
+      "name": "Vector UI update, API delete/create, filtered ranked similarity, and injection rejection",
+      "status": "passed"
+    },
+    {
+      "name": "Client-side navigation, live recursive report, and ledger reconciliation",
+      "status": "passed"
+    },
+    {
+      "name": "Logout removes authenticated access",
+      "status": "passed"
+    }
+  ],
+  "screenshots": [
+    "10_received_order.png",
+    "11_staff_workspace.png"
+  ],
+  "started_at": "2026-11-10T16:17:26.437Z",
+  "status": "passed",
+  "live_database": {
+    "units": 343,
+    "positions": 18
+  },
+  "baseline_unchanged": true,
+  "finished_at": "2026-11-10T16:17:35.856Z"
+}

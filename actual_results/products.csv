@@ -1,0 +1,7 @@
+product_id,sku,product_name,category_id,preferred_supplier_id,unit_price
+"1","EL-001","Wireless Mouse","4","1","600.00"
+"2","EL-002","Keyboard","4","1","900.00"
+"3","ST-001","A4 Paper Ream","2","2","250.00"
+"4","ST-002","Notebook Pack","2","2","150.00"
+"5","SF-001","Safety Gloves","3","3","120.00"
+"6","SF-002","Safety Helmet","3","3","450.00"

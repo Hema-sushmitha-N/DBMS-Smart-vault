@@ -1,0 +1,4 @@
+supplier_id,supplier_name,email,phone
+"1","TechSource","sales@techsource.example","9000000001"
+"2","PaperPlus","sales@paperplus.example","9000000002"
+"3","SafeSupply","sales@safesupply.example","9000000003"

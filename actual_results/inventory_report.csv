@@ -1,0 +1,19 @@
+product_id,sku,product_name,category_name,warehouse_id,warehouse_name,city,quantity,reorder_level,unit_price,stock_value,availability
+1,EL-001,Wireless Mouse,Electronics,1,Central Warehouse,Bengaluru,25,10,600.00,15000.00,AVAILABLE
+1,EL-001,Wireless Mouse,Electronics,2,North Warehouse,Hyderabad,17,10,600.00,10200.00,AVAILABLE
+1,EL-001,Wireless Mouse,Electronics,3,West Warehouse,Pune,5,10,600.00,3000.00,LOW STOCK
+2,EL-002,Keyboard,Electronics,1,Central Warehouse,Bengaluru,8,10,900.00,7200.00,LOW STOCK
+2,EL-002,Keyboard,Electronics,2,North Warehouse,Hyderabad,40,10,900.00,36000.00,AVAILABLE
+2,EL-002,Keyboard,Electronics,3,West Warehouse,Pune,20,10,900.00,18000.00,AVAILABLE
+3,ST-001,A4 Paper Ream,Stationery,1,Central Warehouse,Bengaluru,40,20,250.00,10000.00,AVAILABLE
+3,ST-001,A4 Paper Ream,Stationery,2,North Warehouse,Hyderabad,20,20,250.00,5000.00,AVAILABLE
+3,ST-001,A4 Paper Ream,Stationery,3,West Warehouse,Pune,15,20,250.00,3750.00,LOW STOCK
+4,ST-002,Notebook Pack,Stationery,1,Central Warehouse,Bengaluru,25,10,150.00,3750.00,AVAILABLE
+4,ST-002,Notebook Pack,Stationery,2,North Warehouse,Hyderabad,5,10,150.00,750.00,LOW STOCK
+4,ST-002,Notebook Pack,Stationery,3,West Warehouse,Pune,10,10,150.00,1500.00,AVAILABLE
+5,SF-001,Safety Gloves,Safety,1,Central Warehouse,Bengaluru,40,10,120.00,4800.00,AVAILABLE
+5,SF-001,Safety Gloves,Safety,2,North Warehouse,Hyderabad,15,10,120.00,1800.00,AVAILABLE
+5,SF-001,Safety Gloves,Safety,3,West Warehouse,Pune,8,10,120.00,960.00,LOW STOCK
+6,SF-002,Safety Helmet,Safety,1,Central Warehouse,Bengaluru,0,10,450.00,0.00,OUT OF STOCK
+6,SF-002,Safety Helmet,Safety,2,North Warehouse,Hyderabad,20,10,450.00,9000.00,AVAILABLE
+6,SF-002,Safety Helmet,Safety,3,West Warehouse,Pune,30,10,450.00,13500.00,AVAILABLE

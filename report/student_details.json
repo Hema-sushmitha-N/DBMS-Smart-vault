@@ -1,0 +1,21 @@
+{
+  "course_title": "Database and Management Systems",
+  "course_code": "TO BE CONFIRMED",
+  "project_title": "SmartVault — Inventory & Anomaly Detection",
+  "students": [
+    {
+      "name": "HEMA SUSHMITHA N",
+      "srn": "PES1UG24CS667"
+    },
+    {
+      "name": "GANAVI",
+      "srn": "PES1UG24CS707"
+    }
+  ],
+  "faculty": "Vinay Joshi",
+  "contributions": "Hema Sushmitha N: implementation lead, integration, testing coordination, and report preparation (student-declared). Ganavi: assigned ER/relational-schema review, Staff workflow testing, and screenshot/report review; completion must be confirmed after actual work.",
+  "contribution_status": {
+    "hema": "Student-declared implementation lead",
+    "ganavi": "Assigned review/testing responsibilities; completion pending"
+  }
+}

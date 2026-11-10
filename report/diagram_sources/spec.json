@@ -1,0 +1,258 @@
+{
+  "cols": {
+    "app_users": [
+      "user_id",
+      "full_name",
+      "email",
+      "role",
+      "password_hash"
+    ],
+    "categories": [
+      "category_id",
+      "category_name",
+      "parent_category_id"
+    ],
+    "suppliers": [
+      "supplier_id",
+      "supplier_name",
+      "email",
+      "phone"
+    ],
+    "warehouses": [
+      "warehouse_id",
+      "warehouse_name",
+      "city"
+    ],
+    "products": [
+      "product_id",
+      "sku",
+      "product_name",
+      "category_id",
+      "preferred_supplier_id",
+      "unit_price"
+    ],
+    "inventory": [
+      "product_id",
+      "warehouse_id",
+      "quantity",
+      "reorder_level"
+    ],
+    "purchase_orders": [
+      "order_id",
+      "supplier_id",
+      "warehouse_id",
+      "created_by",
+      "order_date",
+      "status"
+    ],
+    "purchase_order_items": [
+      "order_id",
+      "product_id",
+      "quantity",
+      "unit_cost"
+    ],
+    "stock_movements": [
+      "movement_id",
+      "product_id",
+      "source_warehouse_id",
+      "destination_warehouse_id",
+      "movement_type",
+      "quantity",
+      "performed_by",
+      "occurred_at",
+      "note"
+    ],
+    "low_stock_alerts": [
+      "alert_id",
+      "product_id",
+      "warehouse_id",
+      "observed_quantity",
+      "threshold",
+      "status",
+      "raised_at",
+      "resolved_at"
+    ],
+    "anomaly_logs": [
+      "anomaly_id",
+      "movement_id",
+      "rule_name",
+      "reason",
+      "detected_at"
+    ]
+  },
+  "pk": {
+    "app_users": [
+      "user_id"
+    ],
+    "categories": [
+      "category_id"
+    ],
+    "suppliers": [
+      "supplier_id"
+    ],
+    "warehouses": [
+      "warehouse_id"
+    ],
+    "products": [
+      "product_id"
+    ],
+    "inventory": [
+      "product_id",
+      "warehouse_id"
+    ],
+    "purchase_orders": [
+      "order_id"
+    ],
+    "purchase_order_items": [
+      "order_id",
+      "product_id"
+    ],
+    "stock_movements": [
+      "movement_id"
+    ],
+    "low_stock_alerts": [
+      "alert_id"
+    ],
+    "anomaly_logs": [
+      "anomaly_id"
+    ]
+  },
+  "refs": [
+    [
+      "products",
+      "category_id",
+      "categories",
+      "category_id",
+      "CLASSIFIES",
+      true
+    ],
+    [
+      "products",
+      "preferred_supplier_id",
+      "suppliers",
+      "supplier_id",
+      "PREFERRED_FOR",
+      true
+    ],
+    [
+      "inventory",
+      "product_id",
+      "products",
+      "product_id",
+      "STOCK_OF",
+      true
+    ],
+    [
+      "inventory",
+      "warehouse_id",
+      "warehouses",
+      "warehouse_id",
+      "STORED_AT",
+      true
+    ],
+    [
+      "purchase_orders",
+      "supplier_id",
+      "suppliers",
+      "supplier_id",
+      "SUPPLIES_ORDER",
+      true
+    ],
+    [
+      "purchase_orders",
+      "warehouse_id",
+      "warehouses",
+      "warehouse_id",
+      "DELIVER_TO",
+      true
+    ],
+    [
+      "purchase_orders",
+      "created_by",
+      "app_users",
+      "user_id",
+      "CREATES",
+      true
+    ],
+    [
+      "purchase_order_items",
+      "order_id",
+      "purchase_orders",
+      "order_id",
+      "CONTAINS",
+      true
+    ],
+    [
+      "purchase_order_items",
+      "product_id",
+      "products",
+      "product_id",
+      "ORDERED_PRODUCT",
+      true
+    ],
+    [
+      "stock_movements",
+      "product_id",
+      "products",
+      "product_id",
+      "MOVES_PRODUCT",
+      true
+    ],
+    [
+      "stock_movements",
+      "source_warehouse_id",
+      "warehouses",
+      "warehouse_id",
+      "SOURCE",
+      false
+    ],
+    [
+      "stock_movements",
+      "destination_warehouse_id",
+      "warehouses",
+      "warehouse_id",
+      "DESTINATION",
+      false
+    ],
+    [
+      "stock_movements",
+      "performed_by",
+      "app_users",
+      "user_id",
+      "PERFORMS",
+      true
+    ],
+    [
+      "anomaly_logs",
+      "movement_id",
+      "stock_movements",
+      "movement_id",
+      "FLAGGED_BY",
+      true
+    ],
+    [
+      "low_stock_alerts",
+      "product_id",
+      "inventory",
+      "product_id",
+      "ALERT_FOR",
+      true
+    ],
+    [
+      "low_stock_alerts",
+      "warehouse_id",
+      "inventory",
+      "warehouse_id",
+      "ALERT_FOR",
+      true
+    ],
+    [
+      "categories",
+      "parent_category_id",
+      "categories",
+      "category_id",
+      "PARENT_OF",
+      false
+    ]
+  ]
+}

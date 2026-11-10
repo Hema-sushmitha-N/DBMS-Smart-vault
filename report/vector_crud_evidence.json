@@ -1,0 +1,191 @@
+{
+  "create": {
+    "count": 18
+  },
+  "read": {
+    "count": 18,
+    "example": {
+      "id": "1:1",
+      "product_id": 1,
+      "warehouse_id": 1,
+      "product_name": "Wireless Mouse",
+      "warehouse_name": "Central Warehouse",
+      "quantity": 25,
+      "reorder_level": 10,
+      "vector": [
+        0.6944444179534912,
+        0,
+        0.23076923191547394,
+        0.1388888955116272,
+        0,
+        0.23076923191547394
+      ],
+      "note": "",
+      "updated_at": "2026-11-10T15:51:21.564Z"
+    }
+  },
+  "update": "Demonstration: review warehouse replenishment behavior.",
+  "search": {
+    "source": {
+      "id": "1:1",
+      "product_id": 1,
+      "warehouse_id": 1,
+      "product_name": "Wireless Mouse",
+      "warehouse_name": "Central Warehouse",
+      "quantity": 25,
+      "reorder_level": 10,
+      "vector": [
+        0.6944444179534912,
+        0,
+        0.23076923191547394,
+        0.1388888955116272,
+        0,
+        0.23076923191547394
+      ],
+      "note": "Demonstration: review warehouse replenishment behavior.",
+      "updated_at": "2026-11-10T15:51:21.646Z"
+    },
+    "matches": [
+      {
+        "id": "3:2",
+        "product_id": 3,
+        "warehouse_id": 2,
+        "product_name": "A4 Paper Ream",
+        "warehouse_name": "North Warehouse",
+        "quantity": 20,
+        "reorder_level": 20,
+        "vector": [
+          0.4878048896789551,
+          0,
+          0.1666666716337204,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.016047298908233643,
+        "similarity": 0.9839527010917664
+      },
+      {
+        "id": "3:3",
+        "product_id": 3,
+        "warehouse_id": 3,
+        "product_name": "A4 Paper Ream",
+        "warehouse_name": "West Warehouse",
+        "quantity": 15,
+        "reorder_level": 20,
+        "vector": [
+          0.4166666567325592,
+          0,
+          0.1304347813129425,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.01784616708755493,
+        "similarity": 0.9821538329124451
+      },
+      {
+        "id": "4:1",
+        "product_id": 4,
+        "warehouse_id": 1,
+        "product_name": "Notebook Pack",
+        "warehouse_name": "Central Warehouse",
+        "quantity": 25,
+        "reorder_level": 10,
+        "vector": [
+          0.6944444179534912,
+          0,
+          0.20000000298023224,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.019791603088378906,
+        "similarity": 0.9802083969116211
+      },
+      {
+        "id": "2:3",
+        "product_id": 2,
+        "warehouse_id": 3,
+        "product_name": "Keyboard",
+        "warehouse_name": "West Warehouse",
+        "quantity": 20,
+        "reorder_level": 10,
+        "vector": [
+          0.6451612710952759,
+          0,
+          0.1666666716337204,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.019888997077941895,
+        "similarity": 0.9801110029220581
+      },
+      {
+        "id": "6:2",
+        "product_id": 6,
+        "warehouse_id": 2,
+        "product_name": "Safety Helmet",
+        "warehouse_name": "North Warehouse",
+        "quantity": 20,
+        "reorder_level": 10,
+        "vector": [
+          0.6451612710952759,
+          0,
+          0.1666666716337204,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.019888997077941895,
+        "similarity": 0.9801110029220581
+      },
+      {
+        "id": "6:3",
+        "product_id": 6,
+        "warehouse_id": 3,
+        "product_name": "Safety Helmet",
+        "warehouse_name": "West Warehouse",
+        "quantity": 30,
+        "reorder_level": 10,
+        "vector": [
+          0.7317073345184326,
+          0,
+          0.23076923191547394,
+          0,
+          0,
+          0.1666666716337204
+        ],
+        "note": "",
+        "updated_at": "2026-11-10T15:51:21.565Z",
+        "_distance": 0.020220577716827393,
+        "similarity": 0.9797794222831726
+      }
+    ],
+    "features": [
+      "Stock coverage",
+      "Issue share",
+      "Receipt volume",
+      "Transfer share",
+      "Turnover",
+      "Activity"
+    ]
+  },
+  "delete": {
+    "remaining": 17
+  },
+  "restored": {
+    "count": 18
+  }
+}
