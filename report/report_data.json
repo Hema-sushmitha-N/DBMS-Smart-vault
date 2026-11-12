@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T16:23:15.273Z",
+  "generated_at": "2026-11-12T18:28:06.111Z",
   "versions": {
     "next": "16.4.6",
     "react": "19.3.1",
@@ -27,6 +27,12 @@
         "user_id": 3,
         "full_name": "Neha Shah",
         "email": "neha@smartvault.example",
+        "role": "STAFF"
+      },
+      {
+        "user_id": 4,
+        "full_name": "Registration Demo",
+        "email": "registration.demo@smartvault.example",
         "role": "STAFF"
       }
     ],
@@ -798,7 +804,7 @@
     }
   ],
   "git": {
-    "latest": "4bcb2204f34d4ea9046621261f94a0cc7f231df0|Implement SmartVault Next.js inventory app with SQL RBAC and vector search",
+    "latest": "ff86c59c4bfdeffddb568d161e4cab63bd07c728|Remove temporary test artifacts and instruction file",
     "remote": "Not published"
   },
   "constraints": [
@@ -1643,5 +1649,5 @@
     }
   ],
   "server": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
-  "project_tree": "web/\n|-- .env.example\n|-- AGENTS.md\n|-- app/\n|   |-- api/\n|   |   |-- auth/\n|   |   |   |-- login/\n|   |   |   |   |-- route.js\n|   |   |   |-- logout/\n|   |   |   |   |-- route.js\n|   |   |   |-- me/\n|   |   |   |   |-- route.js\n|   |   |-- data/\n|   |   |   |-- [resource]/\n|   |   |   |   |-- route.js\n|   |   |-- health/\n|   |   |   |-- route.js\n|   |   |-- operations/\n|   |   |   |-- [action]/\n|   |   |   |   |-- route.js\n|   |-- dashboard/\n|   |   |-- [[...section]]/\n|   |   |   |-- page.jsx\n|   |-- globals.css\n|   |-- layout.jsx\n|   |-- login/\n|   |   |-- page.jsx\n|   |-- page.jsx\n|-- components/\n|   |-- dashboard.jsx\n|-- lib/\n|   |-- auth.mjs\n|   |-- db.mjs\n|   |-- http.mjs\n|   |-- passwords.mjs\n|   |-- reports.mjs\n|   |-- vector.mjs\n|-- next.config.mjs\n|-- package-lock.json\n|-- package.json\n|-- scripts/\n|   |-- report-data.mjs\n|   |-- setup.mjs\n|   |-- vector-commands.mjs\n|   |-- vector-demo.mjs\n|-- tests/\n|   |-- browser-smoke.mjs\n|   |-- core.test.mjs\n|   |-- database.mjs\n|   |-- e2e.mjs"
+  "project_tree": "web/\n|-- .env.example\n|-- app/\n|   |-- api/\n|   |   |-- auth/\n|   |   |   |-- login/\n|   |   |   |   |-- route.js\n|   |   |   |-- logout/\n|   |   |   |   |-- route.js\n|   |   |   |-- me/\n|   |   |   |   |-- route.js\n|   |   |   |-- register/\n|   |   |   |   |-- route.js\n|   |   |-- data/\n|   |   |   |-- [resource]/\n|   |   |   |   |-- route.js\n|   |   |-- health/\n|   |   |   |-- route.js\n|   |   |-- operations/\n|   |   |   |-- [action]/\n|   |   |   |   |-- route.js\n|   |-- dashboard/\n|   |   |-- [[...section]]/\n|   |   |   |-- page.jsx\n|   |-- globals.css\n|   |-- layout.jsx\n|   |-- login/\n|   |   |-- page.jsx\n|   |-- page.jsx\n|-- components/\n|   |-- dashboard.jsx\n|-- lib/\n|   |-- auth.mjs\n|   |-- db.mjs\n|   |-- http.mjs\n|   |-- passwords.mjs\n|   |-- reports.mjs\n|   |-- vector.mjs\n|-- next.config.mjs\n|-- package-lock.json\n|-- package.json\n|-- scripts/\n|   |-- report-data.mjs\n|   |-- setup.mjs\n|   |-- vector-commands.mjs\n|   |-- vector-demo.mjs\n|-- tests/\n|   |-- browser-smoke.mjs\n|   |-- core.test.mjs\n|   |-- database.mjs\n|   |-- e2e.mjs"
 }

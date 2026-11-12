@@ -2,3 +2,4 @@ user_id,full_name,email,role
 "1","Asha Rao","asha@smartvault.example","ADMIN"
 "2","Ravi Kumar","ravi@smartvault.example","STAFF"
 "3","Neha Shah","neha@smartvault.example","STAFF"
+"4","Registration Demo","registration.demo@smartvault.example","STAFF"

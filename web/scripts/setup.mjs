@@ -58,11 +58,11 @@ try {
     JSON.stringify(local, null, 2),
   );
 }
-const migration = await fs.readFile(
-  path.join(root, "06_application_security.sql"),
-  "utf8",
-);
-await db.query(migration);
+for (const file of [
+  "06_application_security.sql",
+  "08_public_staff_registration.sql",
+])
+  await db.query(await fs.readFile(path.join(root, file), "utf8"));
 for (const [role, password] of [
   ["smartvault_admin", local.adminPassword],
   ["smartvault_staff", local.staffPassword],

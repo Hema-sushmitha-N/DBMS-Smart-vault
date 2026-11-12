@@ -27,7 +27,7 @@ the signing key are generated separately and excluded from Git.
 - web/lib — sessions, password hashing, database pools, reports, vector CRUD.
 - web/scripts — setup and reproducible vector examples.
 - web/tests — unit, PostgreSQL, browser, and isolated end-to-end checks.
-- 01–07 SQL files — original schema/data plus application permissions and queries.
+- 01–08 SQL files — original schema/data, application permissions, queries, and Staff self-registration.
 - report — report documents, screenshots, schema export, and test evidence.
 - .local — private runtime state, credentials, PostgreSQL and LanceDB files.
 - .tools — project-local PostgreSQL/pgAdmin and report-generation environment.
@@ -42,7 +42,7 @@ From web/:
     npm start
 
 Setup requires an initialized PostgreSQL database containing scripts 01 and 02.
-It applies 06, initializes separate restricted database roles, hashes demo
+It applies 06 and 08, initializes separate restricted database roles, hashes demo
 passwords, creates private .env.local, and populates the LanceDB table.
 Do not rerun 01 or 02 against the existing populated database.
 
@@ -61,15 +61,18 @@ application movements. Current operational reconciliation is the ledger report.
 ## Permissions
 
 Staff can read inventory, reports, and patterns, record movements, and create
-orders. Admin additionally manages master data, creates users, receives/cancels
-orders, and edits vector records. PostgreSQL GRANT/REVOKE permissions enforce
-these differences using distinct non-superuser database login roles.
+orders. A new visitor can use Create Staff Account on the login page; that route
+can create Staff accounts only. Admin additionally manages master data, creates
+Admin or Staff users, receives/cancels orders, and edits vector records.
+PostgreSQL GRANT/REVOKE permissions enforce these differences using distinct
+non-superuser database login roles.
 Neither application role may read password hashes or directly edit balances.
 Trusted SECURITY DEFINER functions have a fixed search path and controlled grants.
 
 Sessions use signed eight-hour HttpOnly/SameSite=Strict cookies. Every request
 loads the current user role. Mutations validate origin and inputs; SQL values
-are parameterized. Login attempts are rate-limited in-process for this local demo.
+are parameterized. Login and registration attempts are rate-limited in-process
+for this local demo.
 
 ## Vector model
 
@@ -96,6 +99,6 @@ The report title page's course code remains to be confirmed if not supplied.
 Private data, .env.local, binaries, node_modules, test databases, and build output
 are ignored. Commit only source, SQL, diagrams, documentation, and evidence.
 A GitHub remote is optional for a local demo and has not been published implicitly.
-For another computer, install PostgreSQL and Node, load 01, 02, and 06 in order,
+For another computer, install PostgreSQL and Node, load 01, 02, 06, and 08 in order,
 provide private database configuration to scripts/setup.mjs, install dependencies,
 and run setup/build/start. .local/connection.json is laptop-specific and never shared.

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict oHzhEH14CqFZTW4tmO2wqwF8xd4Ryg0vKa1fjSLw2E6Jw9cku3kzlr3UorRUOsf
+\restrict fFU5MlFhZMG0fddTbHkpmLlg11aehhcA0Y8GtYkbzkKT8eIPWffQGkSMribdST0
 
 -- Dumped from database version 18.6
 -- Dumped by pg_dump version 18.6
@@ -248,6 +248,25 @@ BEGIN
  RETURNING movement_id INTO result_id;
  RETURN result_id;
 END $$;
+
+
+--
+-- Name: register_staff_user(text, text, text); Type: FUNCTION; Schema: smartvault; Owner: -
+--
+
+CREATE FUNCTION smartvault.register_staff_user(p_name text, p_email text, p_hash text) RETURNS integer
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO 'smartvault', 'pg_temp'
+    AS $_$
+DECLARE result_id integer;
+BEGIN
+ IF length(btrim(p_name)) < 2 THEN RAISE EXCEPTION 'Enter a name with at least 2 characters'; END IF;
+ IF p_hash NOT LIKE 'scrypt$%' THEN RAISE EXCEPTION 'A scrypt password hash is required'; END IF;
+ INSERT INTO app_users(full_name,email,role,password_hash)
+ VALUES(btrim(p_name),lower(btrim(p_email)),'STAFF',p_hash)
+ RETURNING user_id INTO result_id;
+ RETURN result_id;
+END $_$;
 
 
 --
@@ -1194,6 +1213,14 @@ GRANT ALL ON FUNCTION smartvault.record_movement(p_product integer, p_source int
 
 
 --
+-- Name: FUNCTION register_staff_user(p_name text, p_email text, p_hash text); Type: ACL; Schema: smartvault; Owner: -
+--
+
+REVOKE ALL ON FUNCTION smartvault.register_staff_user(p_name text, p_email text, p_hash text) FROM PUBLIC;
+GRANT ALL ON FUNCTION smartvault.register_staff_user(p_name text, p_email text, p_hash text) TO smartvault_auth;
+
+
+--
 -- Name: FUNCTION reject_movement_edit(); Type: ACL; Schema: smartvault; Owner: -
 --
 
@@ -1433,4 +1460,4 @@ GRANT SELECT,USAGE ON SEQUENCE smartvault.warehouses_warehouse_id_seq TO smartva
 -- PostgreSQL database dump complete
 --
 
-\unrestrict oHzhEH14CqFZTW4tmO2wqwF8xd4Ryg0vKa1fjSLw2E6Jw9cku3kzlr3UorRUOsf
+\unrestrict fFU5MlFhZMG0fddTbHkpmLlg11aehhcA0Y8GtYkbzkKT8eIPWffQGkSMribdST0

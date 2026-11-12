@@ -133,7 +133,7 @@ paragraph("The live demonstration retains 6 products, 3 warehouses, 18 inventory
 table(["SKU","Product","Unit price (INR)"],[[r["sku"],r["product_name"],r["unit_price"]] for r in data["tables"]["products"]],[85,280,120])
 table(["Warehouse","City"],[[r["warehouse_name"],r["city"]] for r in data["tables"]["warehouses"]],[290,195])
 heading("4. SQL database commands")
-paragraph("The reproducible SQL sequence is 01_schema.sql, 02_sample_data.sql, then 06_application_security.sql with owner-only setup of generated database-role passwords. Existing populated installations use the setup script rather than rerunning seed files. Complete DDL and migration commands are included in Appendix A.")
+paragraph("The reproducible SQL sequence is 01_schema.sql, 02_sample_data.sql, 06_application_security.sql, then 08_public_staff_registration.sql with owner-only setup of generated database-role passwords. Existing populated installations use the setup script rather than rerunning seed files. Complete DDL and migration commands are included in Appendix A.")
 heading("DDL with integrity constraints",2)
 code("""CREATE TABLE inventory (
  product_id integer NOT NULL REFERENCES products(product_id),
@@ -212,6 +212,7 @@ page()
 heading("Backend and API integration",2)
 table(["Endpoint","Behavior / access"],[
 ["POST /api/auth/login","Verify scrypt hash; create signed session; rate-limit invalid attempts."],
+["POST /api/auth/register","Create a Staff-only account using the Auth database role; issue a signed session."],
 ["POST /api/auth/logout","Clear HttpOnly session cookie."],
 ["GET /api/auth/me","Return current public account details."],
 ["GET /api/data/[resource]","Authenticated live inventory, orders, movements, alerts, patterns, SQL reports, and metadata."],
@@ -262,7 +263,7 @@ paragraph("End-to-end result: "+e2e.get("status","unknown")+". Live sample prese
 rubrics=[
 ("ER diagram",2,"Implemented","Single-page diagram updated for authentication and recursive categories."),
 ("Relational schema, keys, relationships, constraints",3,"Implemented","11 relations; composite keys, FKs, uniqueness, checks; schema export."),
-("SQL DDL with constraints",4,"Implemented","01_schema.sql and 06_application_security.sql."),
+("SQL DDL with constraints",4,"Implemented","01_schema.sql, 06_application_security.sql, and Staff-only registration in 08_public_staff_registration.sql."),
 ("NoSQL/vector database creation",4,"Implemented","Persistent LanceDB inventory_patterns with 18 records."),
 ("Technology justification",1,"Documented","PostgreSQL transactions, Next.js API/UI, embedded vector search."),
 ("DML operations",4,"Implemented and tested","Seed INSERTs; Admin UI CRUD; rollback SQL examples."),
@@ -300,7 +301,7 @@ for title,url in [
 ]:paragraph(title+": "+url,"SVSmall")
 page();heading("Appendix A — SQL schema and application migration")
 paragraph("Complete SQL commands below define the implemented database and role controls. Generated role passwords are intentionally absent; scripts/setup.mjs configures them privately.")
-for file in ["01_schema.sql","06_application_security.sql","07_advanced_queries.sql"]:
+for file in ["01_schema.sql","06_application_security.sql","07_advanced_queries.sql","08_public_staff_registration.sql"]:
  heading(file,2)
  text=(root/file).read_text(encoding="utf-8")
  # Short chunks avoid a single enormous Preformatted block and keep Word readable.
