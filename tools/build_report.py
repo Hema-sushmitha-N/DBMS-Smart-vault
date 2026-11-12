@@ -1,7 +1,6 @@
 from pathlib import Path
 import json,re,textwrap,html,shutil
-from datetime import datetime
-from zoneinfo import ZoneInfo
+from datetime import datetime,timezone,timedelta
 from PIL import Image,ImageDraw,ImageFont
 from reportlab.platypus import SimpleDocTemplate,Paragraph,Spacer,PageBreak,Image as PDFImage,Table,TableStyle,Preformatted,KeepTogether
 from reportlab.lib import colors
@@ -35,7 +34,8 @@ doc.styles["Normal"].font.name="Calibri";doc.styles["Normal"].font.size=Pt(10)
 story=[]
 def paragraph(text,style="SVBody"):
  story.append(Paragraph(html.escape(text).replace("\n","<br/>"),styles[style]))
- if style=="SVTitle":p=doc.add_paragraph();p.alignment=1;p.add_run(text).bold=True
+ if style=="SVTitle":
+  p=doc.add_paragraph();p.alignment=1;r=p.add_run(text);r.bold=True;r.font.size=Pt(23);r.font.color.rgb=RGBColor.from_string("175A48")
  else:doc.add_paragraph(text)
 def heading(text,level=1):
  story.append(Paragraph(html.escape(text),styles["SVH1" if level==1 else "SVH2"]));doc.add_heading(text,level)
@@ -85,7 +85,7 @@ story.append(Spacer(1,105));doc.add_paragraph("\n\n")
 paragraph("DBMS MINI PROJECT REPORT","SVTitle");paragraph(details["project_title"],"SVTitle")
 paragraph(details["course_title"],"SVTitle");paragraph("Course code: "+details["course_code"],"SVBody")
 table(["Student name","SRN"],[[s["name"],s["srn"]] for s in details["students"]],[310,175])
-paragraph("Faculty: "+details["faculty"]);paragraph("Prepared: "+datetime.now(ZoneInfo("Asia/Kolkata")).strftime("%d %B %Y"))
+paragraph("Faculty: "+details["faculty"]);paragraph("Prepared: "+datetime.now(timezone(timedelta(hours=5,minutes=30))).strftime("%d %B %Y"))
 paragraph("Submission: before the project presentation. Local laptop demonstration.","SVSmall")
 paragraph("Title-page course code requires student confirmation before final submission.","SVSmall")
 page()
@@ -208,6 +208,7 @@ paragraph("Executable examples are in web/scripts/vector-commands.mjs. The vecto
 page()
 heading("6. Next.js project tree")
 code(data["project_tree"])
+page()
 heading("Backend and API integration",2)
 table(["Endpoint","Behavior / access"],[
 ["POST /api/auth/login","Verify scrypt hash; create signed session; rate-limit invalid attempts."],
@@ -312,6 +313,7 @@ page();heading("Appendix C — Executable vector CRUD commands")
 text=(root/"web/scripts/vector-commands.mjs").read_text(encoding="utf-8").splitlines()
 for i in range(0,len(text),45):code("\n".join(text[i:i+45]))
 heading("Evidence files",2)
+paragraph("Local Git source baseline: "+data["git"]["latest"]+". A GitHub remote has not been published.","SVSmall")
 paragraph("database_test_evidence.json; vector_crud_evidence.json; e2e_evidence.json; browser_smoke.json; report_data.json; implemented_schema.sql; screenshots/. These files contain actual results and source metadata rather than claimed benchmark accuracy.")
 def footer(canvas,document):
  canvas.saveState();canvas.setFont("SV",7);canvas.setFillColor(colors.HexColor("#80958a"));canvas.drawString(43,25,"SmartVault | DBMS Mini Project | Hema Sushmitha N & Ganavi");canvas.drawRightString(A4[0]-43,25,str(document.page));canvas.restoreState()
